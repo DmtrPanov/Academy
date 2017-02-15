@@ -115,3 +115,69 @@ function Foo() {
   this.bar = value;
 }
 ```
+
+#### delete
+
+Предпочтительней использовать присваивание значения `null`
+```javascript
+Foo.prototype.dispose = function() {
+  this.property_ = null;
+};
+```
+Изменение количества свойст работает горазда медленней, чем присваивание нового значения.
+
+#### Closures
+
+Можно использовать замыкания, но нужно иметь ввиду, что они могут привести к утечки памяти. Поскольку замыкание выделяет память под замыкаемые элементы, даже если они не будут использоваться.
+```javascript
+function foo(element, a, b) {
+  element.onclick = function() { /* uses a and b */ };
+}
+```
+Ссылка на `element`, `a`, `b` будет храниться, даже если `element` не будет использоваться.
+В данном примере следует использовать следующую структуру:
+```javascript
+function foo(element, a, b) {
+  element.onclick = bar(a, b);
+}
+
+function bar(a, b) {
+  return function() { /* uses a and b */ };
+}
+```
+
+#### with() {}
+
+Не следует использовать. Может привести к непредсказуемым последствиям при пересечении свойств и локальных переменных.
+
+#### for-in loop
+
+Только для прохождения по ключам объекта. Но и для этих целей лучше использовать другие методы.
+
+
+#### Associative Arrays
+
+Никогда не используйте `Array` как ассоциативный массив. Используйте объекты.
+Массивы не позволят использовать никакой индексации кроме нумерологической.
+
+JavaScript Style Rules
+===
+#### Naming
+
+```
+functionNamesLikeThis
+variableNamesLikeThis
+ClassNamesLikeThis
+EnumNamesLikeThis
+methodNamesLikeThis
+CONSTANT_VALUES_LIKE_THIS
+foo.namespaceNamesLikeThis.bar
+filenameslikethis.js.
+_privateProperties
+protectedProperties 
+```
+
+
+
+```javascript
+```
