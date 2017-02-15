@@ -19,7 +19,7 @@
 
 Важно отметить наличие непосредственной связи между экземпляром и прототипом конструктора, но не между экземпляром и конструктором.
 
-![Prototype](https://wiki.cochanges.com/download/attachments/23432210/prototype-diagram.png?version=1&modificationDate=1462544575853&api=v2 "Prototype")
+[Схема](https://wiki.cochanges.com/download/attachments/23432210/prototype-diagram.png?version=1&modificationDate=1462544575853&api=v2)
 
 В наследовании свойство prototype имеет смысл только для функции-Конструктора, благодаря ее способности передавать указатель в ссылку [[prototype]] создаваемого объекта.
 
